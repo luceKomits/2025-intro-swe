@@ -31,8 +31,6 @@ Example:
 """
 
 import os
-<<<<<<< HEAD
-=======
 import re
 
 
@@ -66,7 +64,6 @@ def sanitize_for_filename(name: str) -> str:
     # Remove any other unsafe characters
     name = re.sub(r'[<>:"|?*\\]', '-', name)
     return name
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 
 def get_run_directory(output_dir: str, run_id: str) -> str:
@@ -118,18 +115,11 @@ def get_raw_answer_filename(intent_id: str, provider: str, model: str) -> str:
         'intent_sales-tools_raw_anthropic_claude-3-5-sonnet.json'
 
     Note:
-<<<<<<< HEAD
-        Filename is filesystem-safe. All parameters are sanitized by config
-        validation before reaching this function.
-    """
-    return f"intent_{intent_id}_raw_{provider}_{model}.json"
-=======
         Filename is filesystem-safe. Model name is sanitized to remove
         problematic characters like '/' and '.'.
     """
     safe_model = sanitize_for_filename(model)
     return f"intent_{intent_id}_raw_{provider}_{safe_model}.json"
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 
 def get_parsed_answer_filename(intent_id: str, provider: str, model: str) -> str:
@@ -157,12 +147,8 @@ def get_parsed_answer_filename(intent_id: str, provider: str, model: str) -> str
         Contains ExtractionResult serialized to JSON. Paired with raw answer
         file for complete data lineage.
     """
-<<<<<<< HEAD
-    return f"intent_{intent_id}_parsed_{provider}_{model}.json"
-=======
     safe_model = sanitize_for_filename(model)
     return f"intent_{intent_id}_parsed_{provider}_{safe_model}.json"
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 
 def get_error_filename(intent_id: str, provider: str, model: str) -> str:
@@ -190,12 +176,8 @@ def get_error_filename(intent_id: str, provider: str, model: str) -> str:
         Presence of error file indicates partial failure. CLI should report
         total error count in final summary.
     """
-<<<<<<< HEAD
-    return f"intent_{intent_id}_error_{provider}_{model}.json"
-=======
     safe_model = sanitize_for_filename(model)
     return f"intent_{intent_id}_error_{provider}_{safe_model}.json"
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 
 def get_run_meta_filename() -> str:
@@ -270,15 +252,8 @@ def get_operation_result_filename(
         'intent_sales-tools_operation_action-items_anthropic_claude-3-5-sonnet.json'
 
     Note:
-<<<<<<< HEAD
-        Filename is filesystem-safe. All parameters are sanitized by config
-        validation before reaching this function.
-    """
-    return f"intent_{intent_id}_operation_{operation_id}_{provider}_{model}.json"
-=======
         Filename is filesystem-safe. Model name is sanitized to remove
         problematic characters like '/' and '.'.
     """
     safe_model = sanitize_for_filename(model)
     return f"intent_{intent_id}_operation_{operation_id}_{provider}_{safe_model}.json"
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1

@@ -260,38 +260,6 @@ This installs additional tools:
 - **mkdocs** - Documentation builder
 - **mkdocs-material** - Material theme for MkDocs
 
-<<<<<<< HEAD
-## Docker Installation (Optional)
-
-For containerized deployment:
-
-```dockerfile
-# Dockerfile
-FROM python:3.12-slim
-
-WORKDIR /app
-
-# Install uv
-RUN pip install uv
-
-# Copy project files
-COPY . .
-
-# Install dependencies
-RUN uv sync
-
-# Set entrypoint
-ENTRYPOINT ["uv", "run", "llm-answer-watcher"]
-```
-
-Build and run:
-
-```bash
-docker build -t llm-answer-watcher .
-docker run -e OPENAI_API_KEY=$OPENAI_API_KEY \
-           -v $(pwd)/output:/app/output \
-           llm-answer-watcher run --config config.yaml
-=======
 ## Docker Installation (Recommended)
 
 The easiest way to run LLM Answer Watcher is with Docker. This starts both the API server and web interface.
@@ -359,7 +327,6 @@ docker run -p 8000:8000 -v $(pwd)/output:/app/output llm-watcher-backend
 
 # Run web-ui standalone (requires backend running)
 docker run -p 3000:80 llm-watcher-ui
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 ```
 
 ## Troubleshooting

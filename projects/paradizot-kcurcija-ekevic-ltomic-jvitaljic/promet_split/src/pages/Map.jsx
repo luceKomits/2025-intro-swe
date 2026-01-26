@@ -1,7 +1,7 @@
-import BusMap from '../components/mapa/goggle_maps_mock/BusMap.jsx';
+import FleetTracker from '../components/mapa/FleetTracker.jsx';
 
 const MapPage = () => {
-    return <BusMap />;
+    return <FleetTracker />;
 };
 
 export default MapPage;

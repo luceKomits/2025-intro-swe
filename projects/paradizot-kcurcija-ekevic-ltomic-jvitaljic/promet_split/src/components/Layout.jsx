@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import BottomNav from './mapa/goggle_maps_mock/BottomNav';
+import BottomNav from './BottomNav';
 
 const Layout = () => {
     return (

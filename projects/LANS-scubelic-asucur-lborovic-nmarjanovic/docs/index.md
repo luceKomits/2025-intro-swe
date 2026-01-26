@@ -7,53 +7,15 @@
 [![Tests](https://github.com/nibzard/llm-answer-watcher/workflows/Tests/badge.svg)](https://github.com/nibzard/llm-answer-watcher/actions/workflows/test.yml)
 [![Coverage](https://codecov.io/gh/nibzard/llm-answer-watcher/branch/main/graph/badge.svg)](https://codecov.io/gh/nibzard/llm-answer-watcher)
 
-<<<<<<< HEAD
-**Monitor how Large Language Models talk about your brand versus competitors in buyer-intent queries**
-
-[Get Started](getting-started/quick-start.md){ .md-button .md-button--primary }
-[View on GitHub](https://github.com/nibzard/llm-answer-watcher){ .md-button }
-=======
 **Pratite kako veliki jezični modeli govore o vašem brendu u usporedbi s konkurencijom.**
 
 [Započnite (Engleski)](getting-started/quick-start.md){ .md-button .md-button--primary }
 [Pogledaj na GitHub-u](https://github.com/nibzard/llm-answer-watcher){ .md-button }
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 </div>
 
 ---
 
-<<<<<<< HEAD
-## What is LLM Answer Watcher?
-
-LLM Answer Watcher is a production-ready CLI tool that helps you understand how AI models like ChatGPT, Claude, and others represent your brand when users ask buyer-intent questions.
-
-As AI-powered search becomes mainstream, monitoring your brand's presence in LLM responses is crucial for:
-
-- **Brand Visibility**: Track if your product appears in AI recommendations
-- **Competitive Intelligence**: See which competitors are mentioned alongside you
-- **Market Positioning**: Understand your ranking compared to alternatives
-- **Trend Analysis**: Historical data shows how your presence changes over time
-
-## Demo
-
-See LLM Answer Watcher in action:
-
-<div align="center" markdown>
-
-![LLM Answer Watcher Demo](assets/demo.gif)
-
-</div>
-
-**What you're seeing:**
-
-- Configuration validation with brand and competitor definitions
-- Real-time progress bars showing query execution across LLM providers
-- Brand mention extraction and ranking from AI responses
-- Cost tracking and results summary
-
-**Try it yourself:** Run `llm-answer-watcher demo` for an interactive demo (no API keys needed!)
-=======
 ## Što je LLM Answer Watcher?
 
 LLM Answer Watcher je CLI alat koji vam pomaže razumjeti kako AI modeli poput ChatGPT-a, Claude-a i drugih predstavljaju vaš brend kada korisnici postavljaju pitanja s namjerom kupnje.
@@ -99,7 +61,6 @@ llm-answer-watcher run --config moja-konfiguracija.yaml
 ```
 
 Rezultati će biti spremljeni u `output` direktorij, uključujući HTML izvještaj i SQLite bazu podataka.
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 ---
 

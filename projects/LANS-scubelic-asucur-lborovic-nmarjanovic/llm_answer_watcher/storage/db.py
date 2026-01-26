@@ -32,11 +32,7 @@ from ..utils.time import utc_timestamp
 logger = logging.getLogger(__name__)
 
 # Current schema version - increment when migrations are added
-<<<<<<< HEAD
-CURRENT_SCHEMA_VERSION = 5
-=======
 CURRENT_SCHEMA_VERSION = 6
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 
 def init_db_if_needed(db_path: str) -> None:
@@ -198,11 +194,8 @@ def apply_migrations(
                 _migrate_to_v4(conn)
             elif target_version == 5:
                 _migrate_to_v5(conn)
-<<<<<<< HEAD
-=======
             elif target_version == 6:
                 _migrate_to_v6(conn)
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
             # Future migrations go here:
             # elif target_version == 6:
             #     _migrate_to_v6(conn)
@@ -666,8 +659,6 @@ def _migrate_to_v5(conn: sqlite3.Connection) -> None:
     logger.debug("Added browser runner metadata columns to answers_raw (schema v5)")
 
 
-<<<<<<< HEAD
-=======
 def _migrate_to_v6(conn: sqlite3.Connection) -> None:
     """
     Migrate database schema to version 6.
@@ -696,7 +687,6 @@ def _migrate_to_v6(conn: sqlite3.Connection) -> None:
     logger.debug("Created run_insights table (schema v6)")
 
 
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 # ============================================================================
 # Database Operations (CRUD)
 # ============================================================================
@@ -1594,8 +1584,6 @@ def get_run_summary(conn: sqlite3.Connection, run_id: str) -> dict | None:
         "total_models": row[3],
         "total_cost_usd": row[4],
     }
-<<<<<<< HEAD
-=======
 
 
 def insert_run_insight(
@@ -1667,4 +1655,3 @@ def get_run_insight(conn: sqlite3.Connection, run_id: str) -> dict | None:
         "cost_usd": row[3],
         "timestamp_utc": row[4],
     }
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1

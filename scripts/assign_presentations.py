@@ -140,9 +140,6 @@ def parse_project_list(file_path: str) -> List[Project]:
     return projects
 
 
-<<<<<<< HEAD
-def assign_projects_to_dates(projects: List[Project], seed: Optional[int] = None) -> Dict[str, List[Project]]:
-=======
 def pin_teams_to_dates(projects: List[Project], pin_mappings: Dict[str, str]) -> Tuple[Dict[str, List[Project]], List[Project]]:
     """
     Pin specific teams to their assigned dates, removing them from the shuffle pool.
@@ -187,17 +184,13 @@ def pin_teams_to_dates(projects: List[Project], pin_mappings: Dict[str, str]) ->
 
 def assign_projects_to_dates(projects: List[Project], seed: Optional[int] = None,
                             pinned_teams: Optional[Dict[str, str]] = None) -> Dict[str, List[Project]]:
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     """
     Assign projects to presentation dates with controlled distribution.
 
     Args:
         projects: List of projects to assign
         seed: Optional random seed for reproducibility
-<<<<<<< HEAD
-=======
         pinned_teams: Optional dict mapping project titles to specific dates
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
     Returns:
         Dictionary mapping dates to lists of assigned projects
@@ -208,38 +201,6 @@ def assign_projects_to_dates(projects: List[Project], seed: Optional[int] = None
     if seed is not None:
         random.seed(seed)
 
-<<<<<<< HEAD
-    # Validate project count
-    expected_count = 22
-    if len(projects) != expected_count:
-        raise ValueError(f"Expected {expected_count} projects, found {len(projects)}")
-
-    # Shuffle projects for random assignment
-    shuffled_projects = projects.copy()
-    random.shuffle(shuffled_projects)
-
-    # Define distribution
-    distribution = {
-        'January 26, 2026': 8,
-        'February 2, 2026': 7,
-        'February 9, 2026': 7
-    }
-
-    # Assign projects
-    assignments = {}
-    start_idx = 0
-
-    for date, count in distribution.items():
-        end_idx = start_idx + count
-        assignments[date] = shuffled_projects[start_idx:end_idx]
-        start_idx = end_idx
-
-    return assignments
-
-
-def generate_schedule_markdown(assignments: Dict[str, List[Project]],
-                            seed: Optional[int] = None) -> str:
-=======
     # Validate project count (allow flexibility for now)
     expected_count = 22
     if len(projects) != expected_count:
@@ -300,17 +261,13 @@ def generate_schedule_markdown(assignments: Dict[str, List[Project]],
 def generate_schedule_markdown(assignments: Dict[str, List[Project]],
                             seed: Optional[int] = None,
                             pinned_teams: Optional[Dict[str, str]] = None) -> str:
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     """
     Generate markdown content for the presentation schedule.
 
     Args:
         assignments: Dictionary of date to project assignments
         seed: Random seed used for assignment (if any)
-<<<<<<< HEAD
-=======
         pinned_teams: Optional dict of pinned team assignments
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
     Returns:
         Formatted markdown string
@@ -321,11 +278,8 @@ def generate_schedule_markdown(assignments: Dict[str, List[Project]],
     lines.append(f"*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*")
     if seed is not None:
         lines.append(f"*Random seed: {seed}*")
-<<<<<<< HEAD
-=======
     if pinned_teams:
         lines.append(f"*Pinned teams: {len(pinned_teams)}*")
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     lines.append("")
 
     # Calculate statistics
@@ -431,10 +385,6 @@ Examples:
         help='Path to project list file (default: ../projects/PROJECT_LIST.md)'
     )
 
-<<<<<<< HEAD
-    args = parser.parse_args()
-
-=======
     parser.add_argument(
         '--pin-team',
         action='append',
@@ -455,7 +405,6 @@ Examples:
             team_name, date = pin_spec.split('=', 1)
             pinned_teams[team_name.strip()] = date.strip()
 
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     try:
         # Parse projects from file
         print("📖 Reading project list...")
@@ -464,20 +413,12 @@ Examples:
 
         # Assign projects to dates
         print("🎲 Assigning projects to presentation dates...")
-<<<<<<< HEAD
-        assignments = assign_projects_to_dates(projects, args.seed)
-=======
         assignments = assign_projects_to_dates(projects, args.seed, pinned_teams)
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
         print("✅ Projects assigned successfully")
 
         # Generate schedule content
         print("📝 Generating schedule...")
-<<<<<<< HEAD
-        content = generate_schedule_markdown(assignments, args.seed)
-=======
         content = generate_schedule_markdown(assignments, args.seed, pinned_teams)
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
         # Output or save the schedule
         if args.preview:

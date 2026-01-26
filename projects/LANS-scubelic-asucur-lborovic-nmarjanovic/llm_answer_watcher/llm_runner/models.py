@@ -2,35 +2,19 @@
 LLM client abstraction and factory for LLM Answer Watcher.
 
 This module provides a provider-agnostic interface for interacting with
-<<<<<<< HEAD
-different LLM providers (OpenAI, Anthropic, Mistral, etc.) through a unified
-Protocol-based design.
-=======
 Google Gemini through a unified Protocol-based design.
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 
 Key components:
 - LLMResponse: Structured dataclass holding LLM response data
 - LLMClient: Protocol defining provider-agnostic interface
-<<<<<<< HEAD
-- build_client: Factory function to create appropriate client instances
-
-The design follows the Protocol pattern for extensibility, allowing new
-providers to be added without modifying existing code, while maintaining
-=======
 - build_client: Factory function to create Gemini client instances
 
 The design follows the Protocol pattern for extensibility, while maintaining
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
 a stable internal contract for the Cloud product.
 
 Example:
     >>> from llm_runner.models import build_client
-<<<<<<< HEAD
-    >>> client = build_client("openai", "gpt-4o-mini", api_key,
-=======
     >>> client = build_client("google", "gemini-1.5-flash", api_key,
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     ...     system_prompt="You are a helpful assistant.")
     >>> response = client.generate_answer("What are the best email warmup tools?")
     >>> print(response.answer_text)
@@ -199,7 +183,6 @@ def build_client(
 
     Example:
         >>> client = build_client("google", "gemini-1.5-flash", "AIza...",
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
         ...     system_prompt="You are a helpful assistant.")
         >>> isinstance(client, LLMClient)  # Satisfies protocol
         True
@@ -215,69 +198,7 @@ def build_client(
 
     Note:
         This function is the single entry point for creating LLM clients.
-<<<<<<< HEAD
-        As new providers are added, register them here to maintain the
-        stable internal contract for the Cloud product API.
     """
-    if provider == "openai":
-        # Import here to avoid circular dependencies and keep imports lazy
-        from llm_answer_watcher.llm_runner.openai_client import (
-            OpenAIClient,
-        )
-
-        return OpenAIClient(
-            model_name=model_name,
-            api_key=api_key,
-            system_prompt=system_prompt,
-            tools=tools,
-            tool_choice=tool_choice,
-        )
-
-    if provider == "anthropic":
-        # Import here to avoid circular dependencies and keep imports lazy
-        from llm_answer_watcher.llm_runner.anthropic_client import (
-            AnthropicClient,
-        )
-
-        return AnthropicClient(
-            model_name=model_name,
-            api_key=api_key,
-            system_prompt=system_prompt,
-            tools=tools,
-            tool_choice=tool_choice,
-        )
-
-    if provider == "mistral":
-        # Import here to avoid circular dependencies and keep imports lazy
-        from llm_answer_watcher.llm_runner.mistral_client import (
-            MistralClient,
-        )
-
-        return MistralClient(
-            model_name=model_name,
-            api_key=api_key,
-            system_prompt=system_prompt,
-            tools=tools,
-            tool_choice=tool_choice,
-        )
-
-    if provider == "grok":
-        # Import here to avoid circular dependencies and keep imports lazy
-        from llm_answer_watcher.llm_runner.grok_client import (
-            GrokClient,
-        )
-
-        return GrokClient(
-            model_name=model_name,
-            api_key=api_key,
-            system_prompt=system_prompt,
-            tools=tools,
-            tool_choice=tool_choice,
-        )
-
-=======
-    """
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     if provider == "google":
         # Import here to avoid circular dependencies and keep imports lazy
         from llm_answer_watcher.llm_runner.gemini_client import (

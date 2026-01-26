@@ -248,12 +248,9 @@ class RunSettings(BaseModel):
         sqlite_db_path: Path to SQLite database for historical tracking
         max_concurrent_requests: Maximum number of parallel API requests (default: 10)
                                 Respects provider rate limits. Range: 1-50.
-<<<<<<< HEAD
-=======
         request_delay_seconds: Delay between consecutive API requests in seconds (default: 0)
                               Use to avoid rate limiting (429 errors). Range: 0-60.
                               Recommended: 1-2 seconds for Google Gemini free tier.
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
         models: List of LLM models to query for each intent (LEGACY - use runners instead)
                Optional when using the new runners format
         operation_models: List of LLM models used ONLY for operations, not intent queries
@@ -266,10 +263,7 @@ class RunSettings(BaseModel):
     output_dir: str
     sqlite_db_path: str
     max_concurrent_requests: int = 10
-<<<<<<< HEAD
-=======
     request_delay_seconds: float = 0.0
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     models: list[ModelConfig] = []  # Now optional with default empty list
     operation_models: list[ModelConfig] = []  # Models used only for operations
     use_llm_rank_extraction: bool = False
@@ -309,8 +303,6 @@ class RunSettings(BaseModel):
             )
         return v
 
-<<<<<<< HEAD
-=======
     @field_validator("request_delay_seconds")
     @classmethod
     def validate_request_delay_seconds(cls, v: float) -> float:
@@ -326,7 +318,6 @@ class RunSettings(BaseModel):
             )
         return v
 
->>>>>>> 04342a810ea5441727877f814c8d4fc9141799b1
     @field_validator("models")
     @classmethod
     def validate_models(cls, v: list[ModelConfig]) -> list[ModelConfig]:
